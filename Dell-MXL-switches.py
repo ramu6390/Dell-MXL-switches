@@ -3,8 +3,8 @@ import time # For adding delays in the code
 import sys
 #import json
 
-#for attaching the date to the file name
-timestr = time.strftime(" - %m-%d-%Y")
+#for attaching the date to the file name : filename-Month-day-Year-Hours-minutes
+timestr = time.strftime(" - %m-%d-%Y-%H-%M")
 #print (timestr)
 
 #logs to see if the authentication went through or not
@@ -17,8 +17,8 @@ logging.basicConfig(stream=sys.stderr, level=logging.DEBUG)
 
 #paramiko exceptions to handle at the end of the script
 exceptions          =          (paramiko.ssh_exception.BadAuthenticationType, paramiko.ssh_exception.AuthenticationException,
-                                        paramiko.ssh_exception.NoValidConnectionsError, TimeoutError, ConnectionAbortedError,
-                                        paramiko.ssh_exception.SSHException)
+                                paramiko.ssh_exception.NoValidConnectionsError, TimeoutError, ConnectionAbortedError,
+                                paramiko.ssh_exception.SSHException)
 
 
 # Read the switches IP info from the text file
